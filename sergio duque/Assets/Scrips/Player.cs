@@ -58,7 +58,7 @@ public class Player : MonoBehaviour
 
 
         transform.Rotate(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
-        Vector3 dir = transform.TransformDirection(velocidad* Input.GetAxis("Horizontal"),0 velocidad* Input.GetAxis("vertical"));
+        Vector3 dir = transform.TransformDirection(velocidad* Input.GetAxis("Horizontal"),0 ,velocidad* Input.GetAxis("vertical"));
         controller.SimpleMove(dir);
         
         
