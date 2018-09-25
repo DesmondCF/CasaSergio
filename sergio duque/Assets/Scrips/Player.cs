@@ -8,7 +8,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float speed = 3.0F;
+    public float velocidad = 3.0F;
     public float rotateSpeed = 3.0F;
     CharacterController controller;
 
@@ -57,10 +57,12 @@ public class Player : MonoBehaviour
         }
 
 
-        Vector3 forward = transform.TransformDirection(Vector3.forward);
-        float curSpeed = speed * Input.GetAxis("Vertical");
-        controller.SimpleMove(forward * curSpeed);
+        transform.Rotate(0, Input.GetAxis("Mouse X") * rotateSpeed, 0);
+        Vector3 dir = transform.TransformDirection(velocidad* Input.GetAxis("Horizontal"),0 velocidad* Input.GetAxis("vertical"));
+        controller.SimpleMove(dir);
+        
+        
 
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+        
     }
 }

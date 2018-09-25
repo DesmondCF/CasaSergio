@@ -15,10 +15,11 @@ public class Zombie : MonoBehaviour {
     float referenciaEstatico;
     public float rango;
     public Transform jugador;
-
+    public float distancia;
 
 
     private void Start() {
+        jugador = GameObject.FindGameObjectWithTag("Player").transform;
         controller = GetComponent<CharacterController>();
         posicionAzar = new Vector3(Random.Range(-100f, 100f), 0, Random.Range (-100f, 100f));
         referenciaDeambular = tiempoDeambular;
@@ -28,7 +29,7 @@ public class Zombie : MonoBehaviour {
 
 	private void Update () {
 
-        float distancia = Vector3.Distance(jugador.position, transform.position);
+         distancia = Vector3.Distance(jugador.position, transform.position);
         if (distancia < rango)
         {
             Perseguir();
